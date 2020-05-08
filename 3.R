@@ -1,0 +1,12 @@
+#time<-c(2,6,12,54,56,68,89,96,96,125,128,131,140,141,143,145,146,148,162, 168,173,181)
+
+time<-c(142,149,320,560,805,1720,5230,6890)
+length(time)
+status<-c(rep(1,4),0,rep(1,4),rep(0,5),1,0,1,0,0,1,0,0)
+length(status)
+treat<- data.frame(time,status)
+library (survival)
+attach(treat)
+surve.treat<-survfit(Surv(time,status==1))
+summary(surve.treat)
+Call: survfit(formula = Surv(time, status == 1))
